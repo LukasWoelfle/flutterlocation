@@ -129,10 +129,10 @@
         } else {
 #if TARGET_OS_OSX
             NSAlert *alert = [[NSAlert alloc] init];
-            [alert setMessageText:@"Location is Disabled"];
-            [alert setInformativeText:@"To use location, go to your System Preferences > Security & Privacy > Privacy > Location Services."];
-            [alert addButtonWithTitle:@"Open"];
-            [alert addButtonWithTitle:@"Cancel"];
+            [alert setMessageText:NSLocalizedString(@"Location is Disabled",nil)];
+            [alert setInformativeText:NSLocalizedString(@"To use location, go to your System Preferences > Security & Privacy > Privacy > Location Services.",nil)];
+            [alert addButtonWithTitle:NSLocalizedString(@"Open",nil)];
+            [alert addButtonWithTitle:NSLocalizedString(@"Cancel",nil)];
             [alert beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow
                           completionHandler:^(NSModalResponse returnCode) {
                 if (returnCode == NSAlertFirstButtonReturn) {
@@ -141,10 +141,10 @@
                 }
             }];
 #else
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location is Disabled"
-                message:@"To use location, go to your Settings App > Privacy > Location Services."
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Location is Disabled",nil)
+                message:NSLocalizedString(@"To use location, go to your Settings App > Privacy > Location Services.",nil)
                 delegate:self
-                cancelButtonTitle:@"Cancel"
+                cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
                 otherButtonTitles:nil];
             [alert show];
 #endif
